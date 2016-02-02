@@ -9,11 +9,6 @@ get_header();
 
 ?>
 
-
-
-
-
-
 <div class="outer">
 	<div class="middle">
 		<div class="inner" style="">
@@ -34,7 +29,8 @@ get_header();
 				<!-- CONTENU PAGE ABOUT -->
 
                 <?php
-                    $post_apropos = get_post( 24 );
+                    //$post_apropos = get_post( 24 );
+                    $post_apropos = get_page_by_title( 'A propos' );
                     echo "<h1>" . $post_apropos->post_title. "</h1>";
                     echo "<p>" .  $post_apropos->post_content. "</p>";
                 ?>
@@ -46,7 +42,8 @@ get_header();
 				<!-- CONTENU PAGE CREATIONS -->
 
                 <?php
-                    $post_creations = get_post( 26 );
+                    //$post_creations = get_post( 26 );
+                    $post_creations = get_page_by_title( 'Les créations' );
                     echo "<h1>" . $post_creations->post_title. "</h1>";
                     echo "<p>" .  $post_creations->post_content. "</p>";
                 ?>
@@ -96,7 +93,8 @@ get_header();
 				<!-- CONTENU PAGE CONTACT -->
 
                 <?php
-                    $post_contact = get_post( 29 );
+                    //$post_contact = get_post( 29 );
+                    $post_contact = get_page_by_title( 'Contactez-moi' );
                     echo "<h1>" . $post_contact->post_title. "</h1>";
                     echo "<p>" .  $post_contact->post_content. "</p>";
                 ?>
