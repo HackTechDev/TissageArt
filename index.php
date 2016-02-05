@@ -25,7 +25,7 @@ get_header();
 
 			<div id="dummy"></div>
 
-			<div class="content  scroll-pane" id="about">
+			<div class="content  scroll-pane" id="href0">
 				<!-- CONTENU PAGE ABOUT -->
 
                 <?php
@@ -38,7 +38,7 @@ get_header();
 				<!-- END CONTENU PAGE ABOUT -->
 			</div>
 
-			<div class="content scroll-pane" id="creations">
+			<div class="content scroll-pane" id="href1">
 				<!-- CONTENU PAGE CREATIONS -->
 
                 <?php
@@ -59,7 +59,6 @@ get_header();
                             <p>
                             <a href="#tissageart" id="tissageartLink" ><?php echo get_cat_name( 2 ) ?></a>
                             </p>
-                        </a>
                     </li>
 					<li>
                         <a href="#category2">
@@ -67,7 +66,6 @@ get_header();
                             <p>
                             <a href="#linlumiere" id="linlumiereLink" ><?php echo get_cat_name( 3 ) ?></a>
                             </p>
-                        </a>
                     </li>
 					<li>
                         <a href="#category3">
@@ -75,7 +73,6 @@ get_header();
                             <p>
                             <a href="#linsculpture" id="linsculptureLink" ><?php echo get_cat_name( 4 ) ?></a>
                             </p>
-                        </a>
                     </li>
 				</ul>
 				<!-- END LISTE CATEGORIES ARTICLE -->
@@ -89,7 +86,7 @@ get_header();
 				
 			</div>
 
-			<div class="content scroll-pane" id="contact" style="text-align: center">
+			<div class="content scroll-pane" id="href2" style="text-align: center">
 				<!-- CONTENU PAGE CONTACT -->
 
                 <?php
@@ -139,13 +136,25 @@ get_header();
 
 			<div class="nav">
 				<!-- MAIN MENU -->
+                <!--
 				<ul>
-					<li id="listAbout" style="display:none;"><a href="#about" id="aboutLink" >A PROPOS</a></li>
-					<li id="listCreations" style="display:none;"><a href="#creations" id="creationsLink" >CREATIONS</a></li>
-					<li id="listContact" style="display:none;" ><a href="#contact" id="contactLink" >CONTACT</a></li>
+					<li id="idLi0" style="display:none;"><a href="#href0" id="idA0" >A PROPOS</a></li>
+					<li id="idLi1" style="display:none;"><a href="#href1" id="idA1" >CREATIONS</a></li>
+					<li id="idLi2" style="display:none;" ><a href="#href2" id="idA2" >CONTACT</a></li>
 				</ul>
+                -->
 				<!-- END MAIN MENU -->
 			</div>
+            <?php 
+            $args = array(
+                        'items_wrap'      => '<ul>%3$s</ul>',
+                        'container' => 'div',
+                        'container_class' => 'nav',
+                        'walker'             => new Custom_Nav_Menu()
+              ); 
+            wp_nav_menu($args); 
+            ?>
+
 		</div>
 	</div>
 </div>
@@ -158,9 +167,9 @@ jQuery(document).ready(function($) {
 	jQuery(".inner").fadeIn("slow", function() {
 		jQuery("#fiber").fadeIn("slow", function() {
 			jQuery("#logo").fadeIn("slow", function() {
-				jQuery("#listContact").fadeIn("slow", function() {
-					jQuery("#listCreations").fadeIn("slow", function() {
-						jQuery("#listAbout").fadeIn("slow", function() {
+				jQuery("#idLi2").fadeIn("slow", function() {
+					jQuery("#idLi1").fadeIn("slow", function() {
+						jQuery("#idLi0").fadeIn("slow", function() {
 							jQuery(".line").fadeIn("slow", function() {
 							});
 						});
@@ -172,27 +181,27 @@ jQuery(document).ready(function($) {
 	});
 });
 
-jQuery("#aboutLink").click(function($) {
+jQuery("#idA0").click(function($) {
 	jQuery(last).fadeOut("fast", function() {
-		jQuery("#about").fadeIn();
+		jQuery("#href0").fadeIn();
 		jQuery('.scroll-pane').jScrollPane();
-		last = "#about";
+		last = "#href0";
 	});
 });
 
 
-jQuery("#creationsLink").click(function($) {
+jQuery("#idA1").click(function($) {
 	jQuery(last).fadeOut("fast", function() {
-		jQuery("#creations").fadeIn();
+		jQuery("#href1").fadeIn();
 		jQuery('.scroll-pane').jScrollPane();
-		last= "#creations";
+		last= "#href1";
 	});
 });
 
-jQuery("#contactLink").click(function($) {
+jQuery("#idA2").click(function($) {
 	jQuery(last).fadeOut("fast", function() {
-		jQuery("#contact").fadeIn();
-		last= "#contact";
+		jQuery("#href2").fadeIn();
+		last= "#href2";
 	});
 });
 
