@@ -159,8 +159,16 @@ get_header();
 	</div>
 </div>
 
-<script>
+<?php
+    global $wpdb;
+    $count = "SELECT COUNT(*) FROM $wpdb->posts WHERE post_type = 'page' AND post_status = 'publish'";
+    $numberPage =  $wpdb->get_var($count);
 
+    echo $numberPage;
+?>
+
+
+<script>
 var last = "#dummy";
 
 jQuery(document).ready(function($) {
@@ -181,29 +189,16 @@ jQuery(document).ready(function($) {
 	});
 });
 
-jQuery("#idA0").click(function($) {
+<?php for($i = 0; $i < $numberPage; $i++) { ?>
+jQuery("#idA<?php echo $i; ?>").click(function($) {
 	jQuery(last).fadeOut("fast", function() {
-		jQuery("#href0").fadeIn();
+		jQuery("#href<?php echo $i; ?>").fadeIn();
 		jQuery('.scroll-pane').jScrollPane();
-		last = "#href0";
+		last = "#href<?php echo $i; ?>";
 	});
 });
 
-
-jQuery("#idA1").click(function($) {
-	jQuery(last).fadeOut("fast", function() {
-		jQuery("#href1").fadeIn();
-		jQuery('.scroll-pane').jScrollPane();
-		last= "#href1";
-	});
-});
-
-jQuery("#idA2").click(function($) {
-	jQuery(last).fadeOut("fast", function() {
-		jQuery("#href2").fadeIn();
-		last= "#href2";
-	});
-});
+<?php } ?>
 
 
 jQuery("#tissageartLink").click(function($) {
