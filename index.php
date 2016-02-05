@@ -78,11 +78,6 @@ get_header();
 				<!-- END LISTE CATEGORIES ARTICLE -->
 
 
-				<!-- ARTICLES de la Categorie: ici je suis encore indécis sur la facon de charger les articles -->
-				<!-- vu que la cliente ne va pas avoir 50 articles je pense qu'on peut vraiment TOUT -->
-				<!-- précharger, donc avoir exactement ici tous les articles wordpress classés par catégorie -->
-				<!-- et les rendre visible/invisible juste avec jQuery en fonction du clic sur le menu juste au dessus -->
-
 				
 			</div>
 
@@ -131,19 +126,7 @@ get_header();
             ?>
             </div>
 
-
-
-
 			<div class="nav">
-				<!-- MAIN MENU -->
-                <!--
-				<ul>
-					<li id="idLi0" style="display:none;"><a href="#href0" id="idA0" >A PROPOS</a></li>
-					<li id="idLi1" style="display:none;"><a href="#href1" id="idA1" >CREATIONS</a></li>
-					<li id="idLi2" style="display:none;" ><a href="#href2" id="idA2" >CONTACT</a></li>
-				</ul>
-                -->
-				<!-- END MAIN MENU -->
 			</div>
             <?php 
             $args = array(
@@ -175,6 +158,7 @@ jQuery(document).ready(function($) {
 	jQuery(".inner").fadeIn("slow", function() {
 		jQuery("#fiber").fadeIn("slow", function() {
 			jQuery("#logo").fadeIn("slow", function() {
+
 				jQuery("#idLi2").fadeIn("slow", function() {
 					jQuery("#idLi1").fadeIn("slow", function() {
 						jQuery("#idLi0").fadeIn("slow", function() {
